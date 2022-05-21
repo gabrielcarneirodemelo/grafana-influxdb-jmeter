@@ -1,0 +1,33 @@
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    networks:
+      - grafana-influxdb-bridge
+    ports: 
+      - 8086:8086
+    volumes:
+      - influxdb_volume:/var/lib/influxdb
+
+  grafana:
+    depends_on:
+      - influxdb
+    image: grafana/grafana
+    container_name: grafana
+    networks:
+      - grafana-influxdb-bridge
+    ports: 
+      - 3000:3000
+    volumes:
+      - grafana_volume:/var/lib/grafana
+            
+volumes:
+  influxdb_volume: 
+    external: true 
+  grafana_volume:
+    external: true 
+    
+networks:
+  grafana-influxdb-bridge:
+    driver: bridge
+
