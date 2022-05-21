@@ -17,7 +17,7 @@ Procedimento para configurar o o grafana e o influxdb com Jmeter usando Docker:
 	4 - Criando os Dashboards no Grafana:
 		* Na home page do grafana clique no + -> import;
 		* Insira no primeiro campo o nome jmeter e no segundo, copie e cole o .json que está no 
-		arquivo apache-jmeter-dashboard-by-ubikloadpack_rev1.json;
+		grafana-jmeter-dashboards.json;
 		* Em options, insira no campo nome "jmeter", selecione o DB name o banco influx e clique
 		em import;
 	5 - Jmeter:
